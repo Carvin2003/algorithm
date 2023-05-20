@@ -53,19 +53,34 @@
 
 # print(brute_force('eqmv'))
 ###############################################################################
-def search_insert(arr , val) :
-    low = 0
-    high = len(arr)-1
-    mid = high // 2
-    while low <= high :
-        if val > arr[mid] :
-            mid += 1
-            low = mid
+# def search_insert(arr , val) :
+#     low = 0
+#     high = len(arr)-1
+#     mid = high // 2
+#     while low <= high :
+#         if val > arr[mid] :
+#             mid += 1
+#             low = mid
+#         else :
+#             mid -=1
+#             high =mid            
+#     return mid 
+# print(search_insert([2,3,4,5,8,10,11,20], 15)) 
+###############################################################################
+def is_isomorphic(s ,t) :
+    if len(s) != len(t) :
+        return False
+    dict={}
+    set_values = set()
+    for i in range(len(s)) :
+        if s[i] not in dict :
+            if t[i] in set_values :
+                return False
+            dict[s[i]] = t[i]
+            set_values.add(t[i])
         else :
-            mid -=1
-            high =mid
-            
-    return mid 
-print(search_insert([2,3,4,5,8,10,11,20], 15)) 
-                
-    
+            if dict[s[i]] != t[i] :
+                return False
+    return True
+
+print(is_isomorphic('hii', 'boo'))
