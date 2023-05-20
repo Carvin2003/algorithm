@@ -67,20 +67,30 @@
 #     return mid 
 # print(search_insert([2,3,4,5,8,10,11,20], 15)) 
 ###############################################################################
-def is_isomorphic(s ,t) :
-    if len(s) != len(t) :
-        return False
-    dict={}
-    set_values = set()
-    for i in range(len(s)) :
-        if s[i] not in dict :
-            if t[i] in set_values :
-                return False
-            dict[s[i]] = t[i]
-            set_values.add(t[i])
-        else :
-            if dict[s[i]] != t[i] :
-                return False
-    return True
+# def is_isomorphic(s ,t) :
+#     if len(s) != len(t) :
+#         return False
+#     dict={}
+#     set_values = set()
+#     for i in range(len(s)) :
+#         if s[i] not in dict :
+#             if t[i] in set_values :
+#                 return False
+#             dict[s[i]] = t[i]
+#             set_values.add(t[i])
+#         else :
+#             if dict[s[i]] != t[i] :
+#                 return False
+#     return True
+# 
+# print(is_isomorphic('hii', 'boo'))
+###############################################################################
+def encode (plain) :
+    return [ ord(elm) for elm in plain]
+def decode (encode) :
+    return "".join(chr(elm) for elm in encode)
+print(decode([109, 111, 98, 105, 110]))
 
-print(is_isomorphic('hii', 'boo'))
+print(encode('mobin'))
+
+    
