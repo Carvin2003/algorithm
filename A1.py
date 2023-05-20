@@ -23,33 +23,49 @@
 #     return result
 # print(top([1,2,5,4,5,5,5,3,2,1,5,2,6,9,2,8,2,8]))
 ###############################################################################
-from string import ascii_letters
+# from string import ascii_letters
 
-def encrypt(string , key) :
-    alpha = ascii_letters
-    result = ''
-    for ch in string :
-        if ch not in alpha :
-            result += ch
-        else :
-            new_key =  (alpha.index(ch) + key ) % len(alpha)
-            result += alpha[new_key]
-    return result
-def decrypt(string , key) :
-    key *= -1
-    return encrypt(string, key)
+# def encrypt(string , key) :
+#     alpha = ascii_letters
+#     result = ''
+#     for ch in string :
+#         if ch not in alpha :
+#             result += ch
+#         else :
+#             new_key =  (alpha.index(ch) + key ) % len(alpha)
+#             result += alpha[new_key]
+#     return result
+# def decrypt(string , key) :
+#     key *= -1
+#     return encrypt(string, key)
 
-def brute_force(string) :
-    alpha = ascii_letters
-    key = 1
-    resulte =''
-    brute_force_data = {}
-    while key <= len(alpha) :
-        resulte = decrypt(string, key)
-        brute_force_data[key] = resulte
-        resulte = ''
-        key += 1
-    return brute_force_data
+# def brute_force(string) :
+#     alpha = ascii_letters
+#     key = 1
+#     resulte =''
+#     brute_force_data = {}
+#     while key <= len(alpha) :
+#         resulte = decrypt(string, key)
+#         brute_force_data[key] = resulte
+#         resulte = ''
+#         key += 1
+#     return brute_force_data
 
-print(brute_force('eqmv'))
+# print(brute_force('eqmv'))
 ###############################################################################
+def search_insert(arr , val) :
+    low = 0
+    high = len(arr)-1
+    mid = high // 2
+    while low <= high :
+        if val > arr[mid] :
+            mid += 1
+            low = mid
+        else :
+            mid -=1
+            high =mid
+            
+    return mid 
+print(search_insert([2,3,4,5,8,10,11,20], 15)) 
+                
+    
