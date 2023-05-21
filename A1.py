@@ -85,12 +85,23 @@
 # 
 # print(is_isomorphic('hii', 'boo'))
 ###############################################################################
-def encode (plain) :
-    return [ ord(elm) for elm in plain]
-def decode (encode) :
-    return "".join(chr(elm) for elm in encode)
-print(decode([109, 111, 98, 105, 110]))
+# def encode (plain) :
+#     return [ ord(elm) for elm in plain]
+# def decode (encode) :
+#     return "".join(chr(elm) for elm in encode)
+# print(decode([109, 111, 98, 105, 110]))
 
-print(encode('mobin'))
-
+# print(encode('mobin'))
+###############################################################################
+def bead_sort(sequence) :
+    if any(not isinstance(x, int) or x < 0 for x in sequence) :
+        raise TypeError('ridi')
+    for _ in range(len(sequence)):
+        for i,(rod_upper , rod_lower) in enumerate(zip(sequence,sequence[1:])) :
+            if rod_upper > rod_lower :
+                sequence[i] -= rod_upper - rod_lower
+                sequence[i+1] += rod_upper - rod_lower
+    return sequence       
+     
+print(bead_sort([1, 5 ,2 ,9 ,3 ,6 ,7,10]))
     
