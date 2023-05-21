@@ -93,15 +93,39 @@
 
 # print(encode('mobin'))
 ###############################################################################
-def bead_sort(sequence) :
-    if any(not isinstance(x, int) or x < 0 for x in sequence) :
-        raise TypeError('ridi')
-    for _ in range(len(sequence)):
-        for i,(rod_upper , rod_lower) in enumerate(zip(sequence,sequence[1:])) :
-            if rod_upper > rod_lower :
-                sequence[i] -= rod_upper - rod_lower
-                sequence[i+1] += rod_upper - rod_lower
-    return sequence       
+# def bead_sort(sequence) :
+#     if any(not isinstance(x, int) or x < 0 for x in sequence) :
+#         raise TypeError('ridi')
+#     for _ in range(len(sequence)):
+#         for i,(rod_upper , rod_lower) in enumerate(zip(sequence,sequence[1:])) :
+#             if rod_upper > rod_lower :
+#                 sequence[i] -= rod_upper - rod_lower
+#                 sequence[i+1] += rod_upper - rod_lower
+#     return sequence       
      
-print(bead_sort([1, 5 ,2 ,9 ,3 ,6 ,7,10]))
+# print(bead_sort([1, 5 ,2 ,9 ,3 ,6 ,7,10]))
+###############################################################################
+class ZigZag :
+    def __init__(self , l1 ,l2) :
+        self.queue = [l1, l2]
+    def next(self) :
+        v = self.queue.pop(0)
+        r = v.pop(0)
+        if v:
+            self.queue.append(v)
+        return r
+    def has_next (self):
+        if self.queue :
+            return True
+        return False
+z= ZigZag([1,3,5,7,9], [2,4,6,8,10])
+while z.has_next():
+    print(z.next(),end=' ')
+        
+
+
+
+
+###############################################################################
+###############################################################################
     
