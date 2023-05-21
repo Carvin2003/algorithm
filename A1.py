@@ -153,30 +153,41 @@
 #     return stack ,min
 # print(remove_min([4,5,2,8,-2,5,1,8,9]))
 ###############################################################################
-import random
-class OneTime :
-    def encrypt(self ,text) :
-        plain = [ord(i) for i in text]
-        key = []
-        cipher = []
-        for i in plain :
-            k = random.randint(1, 1000)
-            c = (i + k)*k
-            cipher.append(c)
-            key.append(k)
-        return cipher , key
-    def decrypt(self , cipher, key) :
-        plain = []
-        for i in range(len(key)):
-            p= int((cipher[i] -key[i] ** 2) / key[i])
-            plain.append(chr(p))
-        result = ''.join([i for i in plain])
-        return result
+# import random
+# class OneTime :
+#     def encrypt(self ,text) :
+#         plain = [ord(i) for i in text]
+#         key = []
+#         cipher = []
+#         for i in plain :
+#             k = random.randint(1, 1000)
+#             c = (i + k)*k
+#             cipher.append(c)
+#             key.append(k)
+#         return cipher , key
+#     def decrypt(self , cipher, key) :
+#         plain = []
+#         for i in range(len(key)):
+#             p= int((cipher[i] -key[i] ** 2) / key[i])
+#             plain.append(chr(p))
+#         result = ''.join([i for i in plain])
+#         return result
     
-c,k = OneTime().encrypt('mobin')
-print(c)
-print(k)
-print(OneTime().decrypt(c, k))
-
-        
+# c,k = OneTime().encrypt('mobin')
+# print(c)
+# print(k)
+# print(OneTime().decrypt(c, k))
+###############################################################################
+def two_sum(numbers , target) :
+    p1 = 0
+    p2 = len(numbers)-1
+    while p1<=p2 :
+        s = numbers[p1] + numbers[p2]
+        if s==target :
+            return [p1 +1, p2+1]
+        elif s > target :
+            p2 =p2-1
+        else :
+            p1 = p1 + 1
+print(two_sum([2,7,11,15], 17))        
     
