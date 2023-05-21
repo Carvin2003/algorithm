@@ -122,17 +122,35 @@
 # while z.has_next():
 #     print(z.next(),end=' ')
 ###############################################################################
-
-###############################################################################
-def move_zero(seq) :
-    result = []
-    zero = 0
-    for i in seq :
-        if i == 0 and type(i) !=bool :
-            zero += 1
-        else :
-            result.append(i)
+# def move_zero(seq) :
+#     result = []
+#     zero = 0
+#     for i in seq :
+#         if i == 0 and type(i) !=bool :
+#             zero += 1
+#         else :
+#             result.append(i)
             
-    result.extend([0]*zero)
-    return result
-print(move_zero([False,1,0,2,0,1,1,0,1,0,0,"a"]))
+#     result.extend([0]*zero)
+#     return result
+# print(move_zero([False,1,0,2,0,1,1,0,1,0,0,"a"]))
+###############################################################################
+def remove_min(stack) :
+    storage_stack =[]
+    if len(stack) ==0 :
+        return stack
+    min = stack.pop()
+    stack.append(min)
+    for i in range(len(stack)):
+        val =stack.pop()
+        if val <= min :
+            min = val
+        storage_stack.append(val)
+    for i in range(len(storage_stack)) :
+        val = storage_stack.pop()
+        if val !=min :
+            stack.append(val)
+    return stack ,min
+print(remove_min([4,5,2,8,-2,5,1,8,9]))
+        
+    
