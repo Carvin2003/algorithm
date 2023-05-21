@@ -105,27 +105,34 @@
      
 # print(bead_sort([1, 5 ,2 ,9 ,3 ,6 ,7,10]))
 ###############################################################################
-class ZigZag :
-    def __init__(self , l1 ,l2) :
-        self.queue = [l1, l2]
-    def next(self) :
-        v = self.queue.pop(0)
-        r = v.pop(0)
-        if v:
-            self.queue.append(v)
-        return r
-    def has_next (self):
-        if self.queue :
-            return True
-        return False
-z= ZigZag([1,3,5,7,9], [2,4,6,8,10])
-while z.has_next():
-    print(z.next(),end=' ')
-        
-
-
-
+# class ZigZag :
+#     def __init__(self , l1 ,l2) :
+#         self.queue = [l1, l2]
+#     def next(self) :
+#         v = self.queue.pop(0)
+#         r = v.pop(0)
+#         if v:
+#             self.queue.append(v)
+#         return r
+#     def has_next (self):
+#         if self.queue :
+#             return True
+#         return False
+# z= ZigZag([1,3,5,7,9], [2,4,6,8,10])
+# while z.has_next():
+#     print(z.next(),end=' ')
+###############################################################################
 
 ###############################################################################
-###############################################################################
-    
+def move_zero(seq) :
+    result = []
+    zero = 0
+    for i in seq :
+        if i == 0 and type(i) !=bool :
+            zero += 1
+        else :
+            result.append(i)
+            
+    result.extend([0]*zero)
+    return result
+print(move_zero([False,1,0,2,0,1,1,0,1,0,0,"a"]))
