@@ -191,12 +191,29 @@
 #             p1 = p1 + 1
 # print(two_sum([2,7,11,15], 17))   
 ###############################################################################
-def rotate(s, k) :
-    double_s = s + s
-    if k < len(s) :
-        return double_s[k:k+len(s)]
-    else :
-        return double_s[k-len(s):k]
+# def rotate(s, k) :
+#     double_s = s + s
+#     if k < len(s) :
+#         return double_s[k:k+len(s)]
+#     else :
+#         return double_s[k-len(s):k]
     
-print(rotate('mobin', 2))
+# print(rotate('mobin', 2))
+###############################################################################
+def search_range(nums , target) :
+    low = 0 
+    high = len(nums) - 1
+    while low <= high :
+        mid = low +(high - low) // 2
+        if target <nums[mid] :
+            high = mid -1
+        elif target > nums[mid] :
+            low = mid + 1
+        else :
+            break
+    for i in range(len(nums)-1 ,-1,-1) :
+        if nums[i] == target :
+            return[mid , i]      
+    return [None , None]
+print(search_range([5,7,7,7,8,8,8,8,9,9,10,10,10,10,10], 7))
     
